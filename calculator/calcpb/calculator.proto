@@ -1,0 +1,21 @@
+syntax = "proto3";
+
+package calculator;
+option go_package = "calculator/calcpb";
+
+message Calculator {
+    int32 first_val = 1;
+    int32 second_val = 2;
+}
+
+message CalculateRequest {
+    Calculator calculator = 1;
+}
+
+message CalculateResponse {
+    int32 sum = 1;
+}
+
+service CalculateService {
+    rpc Calculate (CalculateRequest) returns (CalculateResponse);
+}
